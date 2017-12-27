@@ -184,8 +184,8 @@
 			children = (
 				DAC1486F1FF3586600360A0D /* GLShaderProgram.h */,
 				DAC1486C1FF3586600360A0D /* GLShaderProgram.mm */,
-				DAC148721FF3586700360A0D /* CameraFShader.glsl */,
 				DAC1486A1FF3586600360A0D /* CameraVShader.glsl */,
+				DAC148721FF3586700360A0D /* CameraFShader.glsl */,
 				DAC1486E1FF3586600360A0D /* QuadVShader.glsl */,
 				DAC148711FF3586600360A0D /* QuadFShader.glsl */,
 				DAC1486B1FF3586600360A0D /* StickerFShader.glsl */,
