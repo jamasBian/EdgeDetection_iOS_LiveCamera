@@ -54,7 +54,7 @@
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     NSArray *devices = AVCaptureDevice.devices;
     for(AVCaptureDevice *device in devices) {
-        if(device.position == AVCaptureDevicePositionFront) {
+        if(device.position == AVCaptureDevicePositionBack) {
             videoDevice = device;
             break;
         }
