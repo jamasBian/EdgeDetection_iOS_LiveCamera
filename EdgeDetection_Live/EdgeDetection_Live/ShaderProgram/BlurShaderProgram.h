@@ -12,4 +12,8 @@
 
 @property (readwrite) GLuint u_TexelWidthOffset;
 @property (readwrite) GLuint u_texelHeightOffset;
+
+@property (readwrite) GLuint u_resolution;
+@property (readwrite) GLuint u_blur_radius;
+@property (readwrite) GLuint u_direction;
 @end

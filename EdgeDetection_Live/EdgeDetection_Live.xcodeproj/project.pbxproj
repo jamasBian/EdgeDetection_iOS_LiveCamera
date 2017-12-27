@@ -32,6 +32,8 @@
 		DAC148981FF3695200360A0D /* GrayScaleFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148971FF3695200360A0D /* GrayScaleFShader.glsl */; };
 		DAC1489A1FF36CBC00360A0D /* AdaptiveFThreshold.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */; };
 		DAC1489D1FF36E7300360A0D /* BlurShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */; };
+		DAC148A21FF392D200360A0D /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148A01FF392D200360A0D /* SimpleFragment.glsl */; };
+		DAC148A51FF3934000360A0D /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148A41FF3934000360A0D /* SimpleVertex.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = AdaptiveFThreshold.glsl; sourceTree = "<group>"; };
 		DAC1489B1FF36E7300360A0D /* BlurShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlurShaderProgram.h; sourceTree = "<group>"; };
 		DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurShaderProgram.m; sourceTree = "<group>"; };
+		DAC148A01FF392D200360A0D /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
+		DAC148A41FF3934000360A0D /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 				DAC148931FF3691C00360A0D /* BlurFShader.glsl */,
 				DAC148971FF3695200360A0D /* GrayScaleFShader.glsl */,
 				DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */,
+				DAC148A41FF3934000360A0D /* SimpleVertex.glsl */,
+				DAC148A01FF392D200360A0D /* SimpleFragment.glsl */,
 				DAC1489B1FF36E7300360A0D /* BlurShaderProgram.h */,
 				DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */,
 			);
@@ -324,6 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC1489A1FF36CBC00360A0D /* AdaptiveFThreshold.glsl in Resources */,
+				DAC148A21FF392D200360A0D /* SimpleFragment.glsl in Resources */,
+				DAC148A51FF3934000360A0D /* SimpleVertex.glsl in Resources */,
 				DAC148681FF3585800360A0D /* Info.plist in Resources */,
 				DAC148771FF3586700360A0D /* QuadVShader.glsl in Resources */,
 				DAC148421FF3575900360A0D /* LaunchScreen.storyboard in Resources */,

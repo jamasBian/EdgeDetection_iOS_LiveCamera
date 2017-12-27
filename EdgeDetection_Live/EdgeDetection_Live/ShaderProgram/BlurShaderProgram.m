@@ -14,6 +14,10 @@
     self.u_TexelWidthOffset = glGetUniformLocation(self.shaderHandle, "texelWidthOffset");
     self.u_texelHeightOffset = glGetUniformLocation(self.shaderHandle, "texelHeightOffset");
     
+    self.u_resolution =  glGetUniformLocation(self.shaderHandle, "resolution");
+    self.u_blur_radius =  glGetUniformLocation(self.shaderHandle, "blur_radius");
+    self.u_direction =  glGetUniformLocation(self.shaderHandle, "direction");
+    
     return self;
 }
 @end

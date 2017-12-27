@@ -125,7 +125,7 @@ const GLubyte Indices[] = {
 //    shaderProgram = [[GLShaderProgram alloc] initWithVS:@"QuadVProgram" FS:@"QuadFProgram"];
     quadProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"AdaptiveFThreshold"];
     cameraProgram =  [[GLShaderProgram alloc] initWithVS:@"CameraVShader" FS:@"GrayScaleFShader"];
-    blurProgram =  [[BlurShaderProgram alloc] initWithVS:@"BlurVShader" FS:@"BlurFShader"];
+    blurProgram =  [[BlurShaderProgram alloc] initWithVS:@"SimpleVertex" FS:@"SimpleFragment"];
 //    animationProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"QuadFShader"];
     [self setupVBOs];
     
@@ -356,14 +356,37 @@ const GLubyte Indices[] = {
     glVertexAttribPointer(blurProgram.a_TextureCoordinate, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
     
     
-    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_TexelWidthOffset, 2.9/offscreenTextureSize.width);
-    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_texelHeightOffset, 2.9/offscreenTextureSize.height);
     
-    glActiveTexture(GL_TEXTURE0 + 2);
+    
+    glActiveTexture(GL_TEXTURE0 + 1);
     glBindTexture(GL_TEXTURE_2D, offscreenTexture);
-    glProgramUniform1iEXT(blurProgram.shaderHandle, blurProgram.u_BaseTextureRGB, 2);
+    glUniform1i(blurProgram.u_BaseTextureRGB, 1);
+    glUniform2f(blurProgram.u_direction, 0, 1);
+    glUniform1f(blurProgram.u_blur_radius, 20);
+    glUniform1f(blurProgram.u_resolution, offscreenTextureSize.height);
+    glUniform1f(blurProgram.u_resolution, offscreenTextureSize.width);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
+                   GL_UNSIGNED_BYTE, 0);
+    glUniform2f(blurProgram.u_direction, 1, 0);
+    glUniform1f(blurProgram.u_blur_radius, 20 / 16 * 9);
+    
+    
+    
+    
+//    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_TexelWidthOffset, 1.0/offscreenTextureSize.width);
+//    glActiveTexture(GL_TEXTURE0 + 2);
+//    glBindTexture(GL_TEXTURE_2D, offscreenTexture);
+//    glProgramUniform1iEXT(blurProgram.shaderHandle, blurProgram.u_BaseTextureRGB, 2);
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
+//    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_texelHeightOffset, 1.0/offscreenTextureSize.height);
+    
+    
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
+                   GL_UNSIGNED_BYTE, 0);
     [self getImage:offscreenTextureSize];
     glDisableVertexAttribArray(blurProgram.a_TexturePosition);
     glDisableVertexAttribArray(blurProgram.a_TextureCoordinate);
