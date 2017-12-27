@@ -27,6 +27,11 @@
 		DAC148831FF359DA00360A0D /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148801FF359D900360A0D /* TCCameraSession.m */; };
 		DAC148841FF359DA00360A0D /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148811FF359DA00360A0D /* MSCameraViewController.m */; };
 		DAC148891FF35A5B00360A0D /* eye_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC148881FF35A5B00360A0D /* eye_mask.png */; };
+		DAC148941FF3691C00360A0D /* BlurFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148931FF3691C00360A0D /* BlurFShader.glsl */; };
+		DAC148961FF3693600360A0D /* BlurVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148951FF3693600360A0D /* BlurVShader.glsl */; };
+		DAC148981FF3695200360A0D /* GrayScaleFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148971FF3695200360A0D /* GrayScaleFShader.glsl */; };
+		DAC1489A1FF36CBC00360A0D /* AdaptiveFThreshold.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */; };
+		DAC1489D1FF36E7300360A0D /* BlurShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,12 @@
 		DAC148811FF359DA00360A0D /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		DAC148821FF359DA00360A0D /* TCCameraSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCameraSession.h; sourceTree = "<group>"; };
 		DAC148881FF35A5B00360A0D /* eye_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye_mask.png; sourceTree = "<group>"; };
+		DAC148931FF3691C00360A0D /* BlurFShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlurFShader.glsl; sourceTree = "<group>"; };
+		DAC148951FF3693600360A0D /* BlurVShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlurVShader.glsl; sourceTree = "<group>"; };
+		DAC148971FF3695200360A0D /* GrayScaleFShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = GrayScaleFShader.glsl; sourceTree = "<group>"; };
+		DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = AdaptiveFThreshold.glsl; sourceTree = "<group>"; };
+		DAC1489B1FF36E7300360A0D /* BlurShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlurShaderProgram.h; sourceTree = "<group>"; };
+		DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurShaderProgram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,14 +182,20 @@
 		DAC148861FF35A0400360A0D /* ShaderProgram */ = {
 			isa = PBXGroup;
 			children = (
-				DAC148721FF3586700360A0D /* CameraFShader.glsl */,
-				DAC1486A1FF3586600360A0D /* CameraVShader.glsl */,
-				DAC148711FF3586600360A0D /* QuadFShader.glsl */,
-				DAC1486E1FF3586600360A0D /* QuadVShader.glsl */,
-				DAC1486B1FF3586600360A0D /* StickerFShader.glsl */,
-				DAC148701FF3586600360A0D /* StickerVShader.glsl */,
 				DAC1486F1FF3586600360A0D /* GLShaderProgram.h */,
 				DAC1486C1FF3586600360A0D /* GLShaderProgram.mm */,
+				DAC148721FF3586700360A0D /* CameraFShader.glsl */,
+				DAC1486A1FF3586600360A0D /* CameraVShader.glsl */,
+				DAC1486E1FF3586600360A0D /* QuadVShader.glsl */,
+				DAC148711FF3586600360A0D /* QuadFShader.glsl */,
+				DAC1486B1FF3586600360A0D /* StickerFShader.glsl */,
+				DAC148701FF3586600360A0D /* StickerVShader.glsl */,
+				DAC148951FF3693600360A0D /* BlurVShader.glsl */,
+				DAC148931FF3691C00360A0D /* BlurFShader.glsl */,
+				DAC148971FF3695200360A0D /* GrayScaleFShader.glsl */,
+				DAC148991FF36CBC00360A0D /* AdaptiveFThreshold.glsl */,
+				DAC1489B1FF36E7300360A0D /* BlurShaderProgram.h */,
+				DAC1489C1FF36E7300360A0D /* BlurShaderProgram.m */,
 			);
 			path = ShaderProgram;
 			sourceTree = "<group>";
@@ -306,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC1489A1FF36CBC00360A0D /* AdaptiveFThreshold.glsl in Resources */,
 				DAC148681FF3585800360A0D /* Info.plist in Resources */,
 				DAC148771FF3586700360A0D /* QuadVShader.glsl in Resources */,
 				DAC148421FF3575900360A0D /* LaunchScreen.storyboard in Resources */,
@@ -314,8 +332,11 @@
 				DAC148751FF3586700360A0D /* StickerFShader.glsl in Resources */,
 				DAC148781FF3586700360A0D /* StickerVShader.glsl in Resources */,
 				DAC1483D1FF3575900360A0D /* Main.storyboard in Resources */,
+				DAC148941FF3691C00360A0D /* BlurFShader.glsl in Resources */,
 				DAC1487A1FF3586700360A0D /* CameraFShader.glsl in Resources */,
 				DAC148741FF3586700360A0D /* CameraVShader.glsl in Resources */,
+				DAC148981FF3695200360A0D /* GrayScaleFShader.glsl in Resources */,
+				DAC148961FF3693600360A0D /* BlurVShader.glsl in Resources */,
 				DAC148891FF35A5B00360A0D /* eye_mask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +364,7 @@
 			files = (
 				DAC148831FF359DA00360A0D /* TCCameraSession.m in Sources */,
 				DAC1487E1FF3588200360A0D /* CMImageExtension.m in Sources */,
+				DAC1489D1FF36E7300360A0D /* BlurShaderProgram.m in Sources */,
 				DAC148841FF359DA00360A0D /* MSCameraViewController.m in Sources */,
 				DAC148731FF3586700360A0D /* OpenGLView.mm in Sources */,
 				DAC148451FF3575900360A0D /* main.m in Sources */,
