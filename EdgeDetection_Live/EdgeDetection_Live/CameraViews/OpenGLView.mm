@@ -11,6 +11,8 @@ typedef struct {
 @interface OpenGLView(){
 //    GLShaderProgram *shaderProgram;
     GLuint offscreenTexture;
+    GLuint offscreenTexture1;
+    GLuint offscreenTexture2;
     GLShaderProgram *quadProgram;
     GLShaderProgram *cameraProgram;
     GLShaderProgram *stickerProgram;
@@ -119,7 +121,7 @@ const GLubyte Indices[] = {
     [self setupFrameBuffer];
 //    shaderProgram = [[GLShaderProgram alloc] initWithVS:@"QuadVProgram" FS:@"QuadFProgram"];
     quadProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"QuadFShader"];
-    cameraProgram =  [[GLShaderProgram alloc] initWithVS:@"CameraVShader" FS:@"CameraFShader"];
+    cameraProgram =  [[GLShaderProgram alloc] initWithVS:@"CameraVShader" FS:@"GrayScaleFShader"];
     stickerProgram =  [[GLShaderProgram alloc] initWithVS:@"StickerVShader" FS:@"StickerFShader"];
 //    animationProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"QuadFShader"];
     [self setupVBOs];
@@ -159,7 +161,6 @@ const GLubyte Indices[] = {
     glGenFramebuffers(1, &frameBuffer);
     glGenTextures(1, &offscreenTexture);
     glGenRenderbuffers(1, &depthBuffer);
-    
     glGenTextures(1, &offscreenTexture);
     glBindTexture(GL_TEXTURE_2D, offscreenTexture);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -167,14 +168,54 @@ const GLubyte Indices[] = {
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, offscreenTextureSize.width, offscreenTextureSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
-    
-    
     glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, offscreenTextureSize.width, offscreenTextureSize.height);
-
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, offscreenTexture, 0);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
+    
+    
+    
+    
+    
+    
+    
+    
+    glGenFramebuffers(1, &frameBuffer1);
+    glGenTextures(1, &offscreenTexture1);
+    glGenRenderbuffers(1, &depthBuffer1);
+    glGenTextures(1, &offscreenTexture1);
+    glBindTexture(GL_TEXTURE_2D, offscreenTexture1);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, offscreenTextureSize.width, offscreenTextureSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer1);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, offscreenTextureSize.width, offscreenTextureSize.height);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer1);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, offscreenTexture1, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer1);
+    
+    
+    
+    
+    
+    glGenFramebuffers(1, &frameBuffer2);
+    glGenTextures(1, &offscreenTexture2);
+    glGenRenderbuffers(1, &depthBuffer2);
+    glGenTextures(1, &offscreenTexture2);
+    glBindTexture(GL_TEXTURE_2D, offscreenTexture2);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, offscreenTextureSize.width, offscreenTextureSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer2);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, offscreenTextureSize.width, offscreenTextureSize.height);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer2);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, offscreenTexture2, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer2);
 //
     
 }
@@ -282,20 +323,12 @@ const GLubyte Indices[] = {
 -(void)renderTexture{
     
     [self bindDrawable];
-    // 1. SAVE OUT THE DEFAULT FRAME BUFFER
     static GLint default_frame_buffer = 0;
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &default_frame_buffer);
-    
-    // 2. RENDER TO OFFSCREEN RENDER TARGET
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    //    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    //    glBindTexture(GL_TEXTURE_2D, offscreenTexture);
-
     glViewport(0, 0, offscreenTextureSize.width, offscreenTextureSize.height);
     glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    /// DRAW THE SCENE ///
     glUseProgram(cameraProgram.shaderHandle);
     glBindBuffer(GL_ARRAY_BUFFER, cam_vertexBuffer);
     glEnableVertexAttribArray(cameraProgram.a_TexturePosition);

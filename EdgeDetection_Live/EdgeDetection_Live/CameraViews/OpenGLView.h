@@ -49,12 +49,17 @@
     GLuint cam_indexBuffer;
     
     GLuint frameBuffer;
+    GLuint frameBuffer1;
+    GLuint frameBuffer2;
+    
     GLuint textureCamera;
     GLuint textureAnimBgr;
     GLuint textureAnimFrm;
     GLuint textureSticker;
     GLuint renderBuffer;
     GLuint depthBuffer;
+    GLuint depthBuffer1;
+    GLuint depthBuffer2;
     
     GLuint u_BaseTextureRGB;
     GLuint u_TextureBackground;
