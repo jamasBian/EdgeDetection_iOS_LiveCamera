@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAC148371FF3575900360A0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148361FF3575900360A0D /* AppDelegate.m */; };
+		DAC1483D1FF3575900360A0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC1483B1FF3575900360A0D /* Main.storyboard */; };
+		DAC1483F1FF3575900360A0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC1483E1FF3575900360A0D /* Assets.xcassets */; };
+		DAC148421FF3575900360A0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC148401FF3575900360A0D /* LaunchScreen.storyboard */; };
+		DAC148451FF3575900360A0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148441FF3575900360A0D /* main.m */; };
+		DAC1484F1FF3575900360A0D /* EdgeDetection_LiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC1484E1FF3575900360A0D /* EdgeDetection_LiveTests.m */; };
+		DAC1485A1FF3575900360A0D /* EdgeDetection_LiveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148591FF3575900360A0D /* EdgeDetection_LiveUITests.m */; };
+		DAC148681FF3585800360A0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC148671FF3585800360A0D /* Info.plist */; };
+		DAC148731FF3586700360A0D /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC148691FF3586600360A0D /* OpenGLView.mm */; };
+		DAC148741FF3586700360A0D /* CameraVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC1486A1FF3586600360A0D /* CameraVShader.glsl */; };
+		DAC148751FF3586700360A0D /* StickerFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC1486B1FF3586600360A0D /* StickerFShader.glsl */; };
+		DAC148761FF3586700360A0D /* GLShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAC1486C1FF3586600360A0D /* GLShaderProgram.mm */; };
+		DAC148771FF3586700360A0D /* QuadVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC1486E1FF3586600360A0D /* QuadVShader.glsl */; };
+		DAC148781FF3586700360A0D /* StickerVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148701FF3586600360A0D /* StickerVShader.glsl */; };
+		DAC148791FF3586700360A0D /* QuadFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148711FF3586600360A0D /* QuadFShader.glsl */; };
+		DAC1487A1FF3586700360A0D /* CameraFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAC148721FF3586700360A0D /* CameraFShader.glsl */; };
+		DAC1487E1FF3588200360A0D /* CMImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC1487D1FF3588100360A0D /* CMImageExtension.m */; };
+		DAC148831FF359DA00360A0D /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148801FF359D900360A0D /* TCCameraSession.m */; };
+		DAC148841FF359DA00360A0D /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC148811FF359DA00360A0D /* MSCameraViewController.m */; };
+		DAC148891FF35A5B00360A0D /* eye_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC148881FF35A5B00360A0D /* eye_mask.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC1484B1FF3575900360A0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC1482A1FF3575900360A0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC148311FF3575900360A0D;
+			remoteInfo = EdgeDetection_Live;
+		};
+		DAC148561FF3575900360A0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC1482A1FF3575900360A0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAC148311FF3575900360A0D;
+			remoteInfo = EdgeDetection_Live;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DAC148321FF3575900360A0D /* EdgeDetection_Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EdgeDetection_Live.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC148351FF3575900360A0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DAC148361FF3575900360A0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DAC1483C1FF3575900360A0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAC1483E1FF3575900360A0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAC148411FF3575900360A0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DAC148441FF3575900360A0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DAC1484A1FF3575900360A0D /* EdgeDetection_LiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdgeDetection_LiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC1484E1FF3575900360A0D /* EdgeDetection_LiveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdgeDetection_LiveTests.m; sourceTree = "<group>"; };
+		DAC148501FF3575900360A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC148551FF3575900360A0D /* EdgeDetection_LiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EdgeDetection_LiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC148591FF3575900360A0D /* EdgeDetection_LiveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EdgeDetection_LiveUITests.m; sourceTree = "<group>"; };
+		DAC1485B1FF3575900360A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC148671FF3585800360A0D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC148691FF3586600360A0D /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
+		DAC1486A1FF3586600360A0D /* CameraVShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CameraVShader.glsl; sourceTree = "<group>"; };
+		DAC1486B1FF3586600360A0D /* StickerFShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StickerFShader.glsl; sourceTree = "<group>"; };
+		DAC1486C1FF3586600360A0D /* GLShaderProgram.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLShaderProgram.mm; sourceTree = "<group>"; };
+		DAC1486D1FF3586600360A0D /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		DAC1486E1FF3586600360A0D /* QuadVShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QuadVShader.glsl; sourceTree = "<group>"; };
+		DAC1486F1FF3586600360A0D /* GLShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLShaderProgram.h; sourceTree = "<group>"; };
+		DAC148701FF3586600360A0D /* StickerVShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StickerVShader.glsl; sourceTree = "<group>"; };
+		DAC148711FF3586600360A0D /* QuadFShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QuadFShader.glsl; sourceTree = "<group>"; };
+		DAC148721FF3586700360A0D /* CameraFShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CameraFShader.glsl; sourceTree = "<group>"; };
+		DAC1487B1FF3587600360A0D /* BCDefinedConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCDefinedConstant.h; sourceTree = "<group>"; };
+		DAC1487C1FF3588100360A0D /* CMImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMImageExtension.h; sourceTree = "<group>"; };
+		DAC1487D1FF3588100360A0D /* CMImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMImageExtension.m; sourceTree = "<group>"; };
+		DAC1487F1FF359D900360A0D /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
+		DAC148801FF359D900360A0D /* TCCameraSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCameraSession.m; sourceTree = "<group>"; };
+		DAC148811FF359DA00360A0D /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
+		DAC148821FF359DA00360A0D /* TCCameraSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCameraSession.h; sourceTree = "<group>"; };
+		DAC148881FF35A5B00360A0D /* eye_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye_mask.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAC1482F1FF3575900360A0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148471FF3575900360A0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148521FF3575900360A0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAC148291FF3575900360A0D = {
+			isa = PBXGroup;
+			children = (
+				DAC148341FF3575900360A0D /* EdgeDetection_Live */,
+				DAC1484D1FF3575900360A0D /* EdgeDetection_LiveTests */,
+				DAC148581FF3575900360A0D /* EdgeDetection_LiveUITests */,
+				DAC148331FF3575900360A0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAC148331FF3575900360A0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC148321FF3575900360A0D /* EdgeDetection_Live.app */,
+				DAC1484A1FF3575900360A0D /* EdgeDetection_LiveTests.xctest */,
+				DAC148551FF3575900360A0D /* EdgeDetection_LiveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC148341FF3575900360A0D /* EdgeDetection_Live */ = {
+			isa = PBXGroup;
+			children = (
+				DAC148871FF35A1400360A0D /* Configurations */,
+				DAC148861FF35A0400360A0D /* ShaderProgram */,
+				DAC148851FF359E300360A0D /* CameraViews */,
+				DAC148671FF3585800360A0D /* Info.plist */,
+			);
+			path = EdgeDetection_Live;
+			sourceTree = "<group>";
+		};
+		DAC1484D1FF3575900360A0D /* EdgeDetection_LiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAC1484E1FF3575900360A0D /* EdgeDetection_LiveTests.m */,
+				DAC148501FF3575900360A0D /* Info.plist */,
+			);
+			path = EdgeDetection_LiveTests;
+			sourceTree = "<group>";
+		};
+		DAC148581FF3575900360A0D /* EdgeDetection_LiveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DAC148591FF3575900360A0D /* EdgeDetection_LiveUITests.m */,
+				DAC1485B1FF3575900360A0D /* Info.plist */,
+			);
+			path = EdgeDetection_LiveUITests;
+			sourceTree = "<group>";
+		};
+		DAC148851FF359E300360A0D /* CameraViews */ = {
+			isa = PBXGroup;
+			children = (
+				DAC1486D1FF3586600360A0D /* OpenGLView.h */,
+				DAC148691FF3586600360A0D /* OpenGLView.mm */,
+				DAC1487F1FF359D900360A0D /* MSCameraViewController.h */,
+				DAC148811FF359DA00360A0D /* MSCameraViewController.m */,
+				DAC148821FF359DA00360A0D /* TCCameraSession.h */,
+				DAC148801FF359D900360A0D /* TCCameraSession.m */,
+			);
+			path = CameraViews;
+			sourceTree = "<group>";
+		};
+		DAC148861FF35A0400360A0D /* ShaderProgram */ = {
+			isa = PBXGroup;
+			children = (
+				DAC148721FF3586700360A0D /* CameraFShader.glsl */,
+				DAC1486A1FF3586600360A0D /* CameraVShader.glsl */,
+				DAC148711FF3586600360A0D /* QuadFShader.glsl */,
+				DAC1486E1FF3586600360A0D /* QuadVShader.glsl */,
+				DAC1486B1FF3586600360A0D /* StickerFShader.glsl */,
+				DAC148701FF3586600360A0D /* StickerVShader.glsl */,
+				DAC1486F1FF3586600360A0D /* GLShaderProgram.h */,
+				DAC1486C1FF3586600360A0D /* GLShaderProgram.mm */,
+			);
+			path = ShaderProgram;
+			sourceTree = "<group>";
+		};
+		DAC148871FF35A1400360A0D /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				DAC1487C1FF3588100360A0D /* CMImageExtension.h */,
+				DAC1487D1FF3588100360A0D /* CMImageExtension.m */,
+				DAC1487B1FF3587600360A0D /* BCDefinedConstant.h */,
+				DAC148351FF3575900360A0D /* AppDelegate.h */,
+				DAC148361FF3575900360A0D /* AppDelegate.m */,
+				DAC1483B1FF3575900360A0D /* Main.storyboard */,
+				DAC1483E1FF3575900360A0D /* Assets.xcassets */,
+				DAC148401FF3575900360A0D /* LaunchScreen.storyboard */,
+				DAC148441FF3575900360A0D /* main.m */,
+				DAC148881FF35A5B00360A0D /* eye_mask.png */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAC148311FF3575900360A0D /* EdgeDetection_Live */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC1485E1FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_Live" */;
+			buildPhases = (
+				DAC1482E1FF3575900360A0D /* Sources */,
+				DAC1482F1FF3575900360A0D /* Frameworks */,
+				DAC148301FF3575900360A0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EdgeDetection_Live;
+			productName = EdgeDetection_Live;
+			productReference = DAC148321FF3575900360A0D /* EdgeDetection_Live.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAC148491FF3575900360A0D /* EdgeDetection_LiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC148611FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_LiveTests" */;
+			buildPhases = (
+				DAC148461FF3575900360A0D /* Sources */,
+				DAC148471FF3575900360A0D /* Frameworks */,
+				DAC148481FF3575900360A0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAC1484C1FF3575900360A0D /* PBXTargetDependency */,
+			);
+			name = EdgeDetection_LiveTests;
+			productName = EdgeDetection_LiveTests;
+			productReference = DAC1484A1FF3575900360A0D /* EdgeDetection_LiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DAC148541FF3575900360A0D /* EdgeDetection_LiveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC148641FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_LiveUITests" */;
+			buildPhases = (
+				DAC148511FF3575900360A0D /* Sources */,
+				DAC148521FF3575900360A0D /* Frameworks */,
+				DAC148531FF3575900360A0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAC148571FF3575900360A0D /* PBXTargetDependency */,
+			);
+			name = EdgeDetection_LiveUITests;
+			productName = EdgeDetection_LiveUITests;
+			productReference = DAC148551FF3575900360A0D /* EdgeDetection_LiveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAC1482A1FF3575900360A0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Paradox Lab";
+				TargetAttributes = {
+					DAC148311FF3575900360A0D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					DAC148491FF3575900360A0D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DAC148311FF3575900360A0D;
+					};
+					DAC148541FF3575900360A0D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DAC148311FF3575900360A0D;
+					};
+				};
+			};
+			buildConfigurationList = DAC1482D1FF3575900360A0D /* Build configuration list for PBXProject "EdgeDetection_Live" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAC148291FF3575900360A0D;
+			productRefGroup = DAC148331FF3575900360A0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAC148311FF3575900360A0D /* EdgeDetection_Live */,
+				DAC148491FF3575900360A0D /* EdgeDetection_LiveTests */,
+				DAC148541FF3575900360A0D /* EdgeDetection_LiveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAC148301FF3575900360A0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC148681FF3585800360A0D /* Info.plist in Resources */,
+				DAC148771FF3586700360A0D /* QuadVShader.glsl in Resources */,
+				DAC148421FF3575900360A0D /* LaunchScreen.storyboard in Resources */,
+				DAC148791FF3586700360A0D /* QuadFShader.glsl in Resources */,
+				DAC1483F1FF3575900360A0D /* Assets.xcassets in Resources */,
+				DAC148751FF3586700360A0D /* StickerFShader.glsl in Resources */,
+				DAC148781FF3586700360A0D /* StickerVShader.glsl in Resources */,
+				DAC1483D1FF3575900360A0D /* Main.storyboard in Resources */,
+				DAC1487A1FF3586700360A0D /* CameraFShader.glsl in Resources */,
+				DAC148741FF3586700360A0D /* CameraVShader.glsl in Resources */,
+				DAC148891FF35A5B00360A0D /* eye_mask.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148481FF3575900360A0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148531FF3575900360A0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAC1482E1FF3575900360A0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC148831FF359DA00360A0D /* TCCameraSession.m in Sources */,
+				DAC1487E1FF3588200360A0D /* CMImageExtension.m in Sources */,
+				DAC148841FF359DA00360A0D /* MSCameraViewController.m in Sources */,
+				DAC148731FF3586700360A0D /* OpenGLView.mm in Sources */,
+				DAC148451FF3575900360A0D /* main.m in Sources */,
+				DAC148761FF3586700360A0D /* GLShaderProgram.mm in Sources */,
+				DAC148371FF3575900360A0D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148461FF3575900360A0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC1484F1FF3575900360A0D /* EdgeDetection_LiveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAC148511FF3575900360A0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC1485A1FF3575900360A0D /* EdgeDetection_LiveUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAC1484C1FF3575900360A0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC148311FF3575900360A0D /* EdgeDetection_Live */;
+			targetProxy = DAC1484B1FF3575900360A0D /* PBXContainerItemProxy */;
+		};
+		DAC148571FF3575900360A0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAC148311FF3575900360A0D /* EdgeDetection_Live */;
+			targetProxy = DAC148561FF3575900360A0D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAC1483B1FF3575900360A0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC1483C1FF3575900360A0D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAC148401FF3575900360A0D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAC148411FF3575900360A0D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAC1485C1FF3575900360A0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DAC1485D1FF3575900360A0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAC1485F1FF3575900360A0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RJDMQAEG2;
+				INFOPLIST_FILE = EdgeDetection_Live/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-Live";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAC148601FF3575900360A0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RJDMQAEG2;
+				INFOPLIST_FILE = EdgeDetection_Live/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-Live";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DAC148621FF3575900360A0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EdgeDetection_LiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-LiveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdgeDetection_Live.app/EdgeDetection_Live";
+			};
+			name = Debug;
+		};
+		DAC148631FF3575900360A0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EdgeDetection_LiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-LiveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EdgeDetection_Live.app/EdgeDetection_Live";
+			};
+			name = Release;
+		};
+		DAC148651FF3575900360A0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EdgeDetection_LiveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-LiveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EdgeDetection_Live;
+			};
+			name = Debug;
+		};
+		DAC148661FF3575900360A0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EdgeDetection_LiveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ipvision.ca.EdgeDetection-LiveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EdgeDetection_Live;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAC1482D1FF3575900360A0D /* Build configuration list for PBXProject "EdgeDetection_Live" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC1485C1FF3575900360A0D /* Debug */,
+				DAC1485D1FF3575900360A0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC1485E1FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_Live" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC1485F1FF3575900360A0D /* Debug */,
+				DAC148601FF3575900360A0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC148611FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_LiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC148621FF3575900360A0D /* Debug */,
+				DAC148631FF3575900360A0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC148641FF3575900360A0D /* Build configuration list for PBXNativeTarget "EdgeDetection_LiveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC148651FF3575900360A0D /* Debug */,
+				DAC148661FF3575900360A0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAC1482A1FF3575900360A0D /* Project object */;
+}
