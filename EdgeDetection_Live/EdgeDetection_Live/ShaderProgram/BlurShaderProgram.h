@@ -10,4 +10,6 @@
 
 @interface BlurShaderProgram : GLShaderProgram
 
+@property (readwrite) GLuint u_TexelWidthOffset;
+@property (readwrite) GLuint u_texelHeightOffset;
 @end

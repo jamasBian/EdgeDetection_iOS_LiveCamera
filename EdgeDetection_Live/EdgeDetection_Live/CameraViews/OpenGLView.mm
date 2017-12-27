@@ -1,6 +1,9 @@
 
 #import "OpenGLView.h"
 #import "GLShaderProgram.h"
+#import "BlurShaderProgram.h"
+
+
 #define TRIANGLE_INDEX_COUNT 6
 typedef struct {
     float Position[3];
@@ -15,7 +18,7 @@ typedef struct {
     GLuint offscreenTexture2;
     GLShaderProgram *quadProgram;
     GLShaderProgram *cameraProgram;
-    GLShaderProgram *stickerProgram;
+    BlurShaderProgram *blurProgram;
     GLShaderProgram *animationProgram;
     
     CGSize offscreenTextureSize;
@@ -122,7 +125,7 @@ const GLubyte Indices[] = {
 //    shaderProgram = [[GLShaderProgram alloc] initWithVS:@"QuadVProgram" FS:@"QuadFProgram"];
     quadProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"QuadFShader"];
     cameraProgram =  [[GLShaderProgram alloc] initWithVS:@"CameraVShader" FS:@"GrayScaleFShader"];
-    stickerProgram =  [[GLShaderProgram alloc] initWithVS:@"StickerVShader" FS:@"StickerFShader"];
+    blurProgram =  [[BlurShaderProgram alloc] initWithVS:@"BlurVShader" FS:@"BlurFShader"];
 //    animationProgram =  [[GLShaderProgram alloc] initWithVS:@"QuadVShader" FS:@"QuadFShader"];
     [self setupVBOs];
     
@@ -161,7 +164,6 @@ const GLubyte Indices[] = {
     glGenFramebuffers(1, &frameBuffer);
     glGenTextures(1, &offscreenTexture);
     glGenRenderbuffers(1, &depthBuffer);
-    glGenTextures(1, &offscreenTexture);
     glBindTexture(GL_TEXTURE_2D, offscreenTexture);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -184,7 +186,6 @@ const GLubyte Indices[] = {
     glGenFramebuffers(1, &frameBuffer1);
     glGenTextures(1, &offscreenTexture1);
     glGenRenderbuffers(1, &depthBuffer1);
-    glGenTextures(1, &offscreenTexture1);
     glBindTexture(GL_TEXTURE_2D, offscreenTexture1);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -204,7 +205,6 @@ const GLubyte Indices[] = {
     glGenFramebuffers(1, &frameBuffer2);
     glGenTextures(1, &offscreenTexture2);
     glGenRenderbuffers(1, &depthBuffer2);
-    glGenTextures(1, &offscreenTexture2);
     glBindTexture(GL_TEXTURE_2D, offscreenTexture2);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -318,13 +318,7 @@ const GLubyte Indices[] = {
     return texName;
 }
 
-
-//here is offscreen texture drawing.
--(void)renderTexture{
-    
-    [self bindDrawable];
-    static GLint default_frame_buffer = 0;
-    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &default_frame_buffer);
+-(void)grayScaleTexture{
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glViewport(0, 0, offscreenTextureSize.width, offscreenTextureSize.height);
     glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
@@ -346,24 +340,46 @@ const GLubyte Indices[] = {
     
     glDisableVertexAttribArray(cameraProgram.a_TexturePosition);
     glDisableVertexAttribArray(cameraProgram.a_TextureCoordinate);
-    
-//    [self getImage:offscreenTextureSize];
-//    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    glUseProgram(stickerProgram.shaderHandle);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glEnableVertexAttribArray(stickerProgram.a_TexturePosition);
-    glVertexAttribPointer(stickerProgram.a_TexturePosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Position));
-    glEnableVertexAttribArray(stickerProgram.a_TextureCoordinate);
-    glVertexAttribPointer(stickerProgram.a_TextureCoordinate, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
+}
 
+-(void)blurTexture{
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer1);
+    glViewport(0, 0, offscreenTextureSize.width, offscreenTextureSize.height);
+    glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    glUseProgram(blurProgram.shaderHandle);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glEnableVertexAttribArray(blurProgram.a_TexturePosition);
+    glVertexAttribPointer(blurProgram.a_TexturePosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Position));
+    glEnableVertexAttribArray(blurProgram.a_TextureCoordinate);
+    glVertexAttribPointer(blurProgram.a_TextureCoordinate, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
+    
+    
+    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_TexelWidthOffset, 1/offscreenTextureSize.width);
+    glProgramUniform1fEXT(blurProgram.shaderHandle, blurProgram.u_texelHeightOffset, 1/offscreenTextureSize.height);
+    
     glActiveTexture(GL_TEXTURE0 + 2);
-    glBindTexture(GL_TEXTURE_2D, textureSticker);
-    glProgramUniform1iEXT(stickerProgram.shaderHandle, stickerProgram.u_BaseTextureRGB, 2);
+    glBindTexture(GL_TEXTURE_2D, offscreenTexture);
+    glProgramUniform1iEXT(blurProgram.shaderHandle, blurProgram.u_BaseTextureRGB, 2);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
     [self getImage:offscreenTextureSize];
-    glDisableVertexAttribArray(stickerProgram.a_TexturePosition);
-    glDisableVertexAttribArray(stickerProgram.a_TextureCoordinate);
+    glDisableVertexAttribArray(blurProgram.a_TexturePosition);
+    glDisableVertexAttribArray(blurProgram.a_TextureCoordinate);
+}
+
+//here is offscreen texture drawing.
+-(void)renderTexture{
+    
+    [self bindDrawable];
+    static GLint default_frame_buffer = 0;
+    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &default_frame_buffer);
+    
+    [self grayScaleTexture];
+    [self blurTexture];
+    
+    
 //
      //check GPU image for higher resultion. it should be 1080X1822
     
@@ -381,7 +397,7 @@ const GLubyte Indices[] = {
     glEnableVertexAttribArray(quadProgram.a_TextureCoordinate);
     glVertexAttribPointer(quadProgram.a_TextureCoordinate, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
     glActiveTexture(GL_TEXTURE4);
-    glBindTexture(GL_TEXTURE_2D, offscreenTexture);
+    glBindTexture(GL_TEXTURE_2D, offscreenTexture1);
     glUniform1i(quadProgram.u_BaseTextureRGB, 4);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, off_indexBuffer);
     glDrawElements(GL_TRIANGLES, sizeof(OffIndices)/sizeof(OffIndices[0]), GL_UNSIGNED_BYTE, 0);
